@@ -75,6 +75,35 @@ Web apps use browser-native patterns. Include these when relevant:
 - "international transfer screen with exchange rate fee breakdown and delivery estimate"
 - "recurring payment setup screen with frequency amount date and recipient fields"
 
+## Flow Query Examples (`search_flows`)
+
+Flow queries describe journeys, not individual screens. Focus on what the user goes through from start to finish.
+
+### Onboarding & Signup
+- "user signup flow with email verification profile creation and first-use tutorial"
+- "AI app onboarding flow with goal selection permissions and first interaction"
+- "SaaS trial onboarding flow with workspace setup team invite and feature tour"
+
+### Checkout & Payment
+- "ecommerce checkout flow from cart review through shipping payment to order confirmation"
+- "subscription upgrade flow with plan comparison billing entry and confirmation"
+- "in-app purchase flow with feature preview pricing and payment"
+
+### Account & Settings
+- "account setup flow with profile photo username bio and preferences"
+- "two-factor authentication setup flow with method selection and verification"
+- "notification preferences flow with channel selection frequency and confirmation"
+
+### Crypto & Fintech
+- "crypto wallet creation flow with seed phrase generation backup and verification"
+- "money transfer flow from recipient selection through amount entry to confirmation"
+- "KYC verification flow with document upload selfie and review status"
+
+### Tips
+- Keep flow queries broader than screen queries — describe the journey arc, not UI components
+- Use `limit: 3-5` since each flow contains multiple screens
+- Combine with `search_screens` to drill into specific steps that need deeper study
+
 ## Multi-Batch Research
 
 For broad research topics, use `exclude_screen_ids` to get fresh results across multiple calls:
