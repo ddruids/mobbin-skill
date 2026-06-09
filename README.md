@@ -1,14 +1,16 @@
 # Mobbin UI Research Skill
 
-Turn [Mobbin](https://mobbin.com)'s 300K+ screen library into structured UI research. Give your agent a research goal — it searches Mobbin, visually analyzes the screenshots, and returns pattern clusters, design system components, or competitive comparisons.
+Turn [Mobbin](https://mobbin.com)'s 300K+ screen library into structured UI research. Give your agent a research goal — it searches Mobbin for screens and flows, visually analyzes the results, and returns pattern clusters, design system components, or competitive comparisons.
 
 Works with Claude Code, Cursor, Gemini CLI, Lovable, and any MCP-compatible agent.
 
 ## What it does
 
 - Translates abstract UX goals into concrete Mobbin search queries
+- Searches both **individual screens** and **multi-step user flows** (onboarding, checkout, etc.)
 - Visually analyzes returned screenshots (layout, hierarchy, components, color)
 - Clusters findings into recurring UI patterns with linked references
+- Derives research queries from PRDs and product briefs automatically
 - Surfaces atomic design system primitives when asked about components
 - Supports three output modes: research summary, competitive comparison, product decision log
 
@@ -29,21 +31,22 @@ Once installed, the skill activates when you ask about UI research, screen patte
 "Compare how crypto wallets display transaction confirmation"
 "What are common components for a SaaS dashboard design system?"
 "How do AI apps handle empty states on iOS?"
+"Here's my PRD — research the key screens and flows"
 ```
 
 The skill automatically:
 1. Resolves the target platform (iOS or web)
-2. Generates 3-7 concrete search queries
-3. Calls Mobbin's `search_screens` with `mode: "deep"`
-4. Analyzes the returned screenshots
+2. Picks the right tool mix — `search_screens` for specific screens, `search_flows` for multi-step journeys
+3. Generates 3-7 concrete search queries (or derives them from your PRD)
+4. Analyzes the returned screenshots and flow sequences
 5. Synthesizes findings into structured output with Mobbin URLs
 
 ## What's inside
 
 | File | Purpose |
 |------|---------|
-| [`SKILL.md`](SKILL.md) | Core skill — query construction, analysis framework, output formats, design system component mode |
-| [`references/query-patterns.md`](references/query-patterns.md) | Query formula, platform-specific guidance, 20+ example queries by category |
+| [`SKILL.md`](SKILL.md) | Core skill — screen/flow tool selection, query construction, PRD-driven research, analysis framework, output formats, design system component mode |
+| [`references/query-patterns.md`](references/query-patterns.md) | Query formula, platform-specific guidance, 20+ screen query examples, flow query examples by category |
 | [`references/synthesis-framework.md`](references/synthesis-framework.md) | 8 analysis lenses, 3 output templates (research summary, competitive comparison, product decision log) |
 
 ---
